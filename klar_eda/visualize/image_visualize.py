@@ -144,7 +144,8 @@ class ImageDataVisualize:
         self.save_or_show(plot.figure, 'num_images_by_category', 'bar_chart',x_label='category', y_label='No. of images', save=save, show=show)
         plot = plt.pie(counts.tolist(), labels=counts.index)
         self.save_or_show(plt, 'num_images_by_category', 'pie_chart', save=save, show=show)
-
+#here we are tracing of plot of standard deviation versus mean.here the x-axis is the mean and y axis is the standard deviation.
+# hence std is plotted as a function of the mean and hence we show the dependence of standard devaiation on mean through graph.(it might be a normal distribution plot.)
     def std_vs_mean(self, save=True, show=False):
         groups = self.dataset.groupby('Label')
         y = []
@@ -166,7 +167,9 @@ class ImageDataVisualize:
         labels = self.dataset['Label'].to_list()
         plot = sns.scatterplot(x=means, y=stds, hue=labels, palette='viridis', legend='full')
         self.save_or_show(plot.figure, 'std_vs_mean', 'std_vs_mean_all',x_label='mean', y_label='Std Deviation', save=save, show=show)
-
+#In this function we are trying to use t-Distributed Stochastic Neighbor Embedding (t-SNE).
+#primarily used for data exploration and visualizing high-dimensional data.
+#In simpler terms, t-SNE gives you a feel or intuition of how the data is arranged in a high-dimensional space.
     def t_sne(self, batch_size=32, save=True, show=False):
         model = ResNet50(weights='imagenet', pooling=max, include_top = False)
         features_list = []
