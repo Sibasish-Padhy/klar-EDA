@@ -25,10 +25,8 @@ from sklearn.manifold import TSNE
 
 class ImageDataVisualize:
 # the first function is used intialize/get data in the form of images and labels.
-#It also checks/looksout for the greyscale values.Also it checks whether the number of images are equal to the no of labels for naming /labelling properly.
-#If it is not found an error is shown.this is used for validating the images.
-#The dataset is then prepared from the dataframe by giving all the appropriate tags to the respective dataframes.Image,height,width labels.
-#Thea area is then calculated from the height and width and the number of imagesare then printed out.
+#data-images we are collecting data from
+#labels- to categorise the data
 
     def __init__(self, data, labels, boxes=None):
         self.images = data
@@ -55,11 +53,8 @@ class ImageDataVisualize:
         print('Number of images after validation and filtering:', self.num_images)
 #This function is written for saving the file(of the program) for better access and smooth running.
 #it looks for the  directory where the file can be saved by applying the join function if actually it is saved.
-# It looks for the directory of the file where it  can be saved (by using the join function) and if such directory doen't exist a new directory has to be made by using the makedirs function.
-# the x_label and y_label are also been given their respective titles.
-# the title of the plot is being labelled  by combining (formatting) the plot_type and file_name.
-# the path is saved by the join fucntion which combines the directory and the file name (save_dir,file_name).
-#  the title is then displayed.
+#plot:plotting the function,plot_type:the type of plot to be plotted
+#x,y-labels:the tags given to the variables to be plotted
     def save_or_show(self, plot, plot_type, file_name,x_label=None, y_label=None, save=True, show=False):
         if save:
             save_dir = join(VIZ_ROOT, plot_type)
