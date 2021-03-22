@@ -188,3 +188,4 @@ class ImageDataVisualize:
 
         plot = sns.scatterplot(x=x, y=y, hue=self.labels, palette='viridis', legend='full')
         self.save_or_show(plot.figure, 'tsne', 'tsne', x_label='Feature X', y_label='Feature Y', save=save, show=show)
+        #Thank you
